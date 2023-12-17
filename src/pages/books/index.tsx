@@ -51,7 +51,8 @@ const BooksPage = () => {
     const [maxPage, setMaxPage] = useState<number>(-1);
   
     const getData = async (page: number, limit: number) => {
-      const response = await axios.get(`http://127.0.0.1:8000/api/v1/books?offset=${(page-1)*limit}&limit=${limit}`)
+      const offset = (page-1)*limit
+      const response = await axios.get(`http://127.0.0.1:8000/api/v1/books?offset=${offset}&limit=${limit}`)
       const count = response.data.count;
       setMaxPage(count % LIMIT_RECORDS === 0 ? Math.floor(count / LIMIT_RECORDS) : Math.floor(count / LIMIT_RECORDS) + 1);
       setDataSource(response.data.results);
