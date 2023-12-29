@@ -1,9 +1,21 @@
-import React from "react"
+import Flex from "../../components/Flex";
+import Section from "../../components/Section";
+import Title from "../../components/Title";
+import { Container } from "../../global-styles";
+
 
 // Страница жанров книг
 const GenresPage = () => {
     return (
-        <div className="">Жанры</div>
+        <Container>
+            <Section>
+                <Flex direction="column" gap="15px">
+                    <Title>
+                        Жанры
+                    </Title>
+                </Flex>
+            </Section>
+        </Container>
     )
 }
 

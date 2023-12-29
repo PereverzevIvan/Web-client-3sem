@@ -1,11 +1,17 @@
-import { Button } from "antd";
-import Table, { ColumnsType } from "antd/es/table";
 import axios from "axios";
 import { useEffect, useState } from "react"
+import { Container } from "../../global-styles";
+import Section from "../../components/Section";
+import Title from "../../components/Title";
+import Flex from "../../components/Flex";
+import Table from "../../components/Table";
+import { DefaultStyledButton } from "../../components/Buttons";
+import ButtonBox from "../../components/ButtonBox";
+import Condition from "../../components/condition";
 
 // СТраница книг
 const BooksPage = () => {
-    const LIMIT_RECORDS = 3;  // Лимит получаемых данных
+    const LIMIT_RECORDS = 5;  // Лимит получаемых данных
   
     // Структура получаемых данных
     interface DataType {
@@ -14,36 +20,28 @@ const BooksPage = () => {
       author: string,
       genre: number,
       year: number,
-      annotation: string
+      annotation: string,
+      image: string
     }
     
     // Определение столбцов таблицы
-    const columns: ColumnsType<DataType> = [
+    const columns: {text: string, key: string}[] = 
+    [
       {
-        title: '№',
-        dataIndex: 'pk',
-        key: 'pk',
-      },
+        text: '№',
+        key: 'pk'},
       {
-        title: 'Название книги',
-        dataIndex: 'book_name',
-        key: 'book_name',
-      },
+        text: 'Название книги', 
+        key: 'book_name'},
       {
-        title: 'Автор',
-        dataIndex: 'author',
-        key: 'author',
-      },
+        text: 'Автор', 
+        key: 'author'},
       {
-        title: 'Жанр',
-        dataIndex: 'genre',
-        key: 'genre',
-      },
+        text: 'Жанр', 
+        key: 'genre'},
       {
-        title: 'Год издания',
-        dataIndex: 'year',
-        key: 'year',
-      },
+        text: 'Год издания', 
+        key: 'year'}
     ]
   
     const [page, setPage] = useState<number>(1);
@@ -63,16 +61,27 @@ const BooksPage = () => {
       getData(page, LIMIT_RECORDS)
     }, [page]);
 
+
     return (
-        <>
-            <div className="">Книги</div>
-            <Table dataSource={dataSource} columns={columns} pagination={false} />
-            <div className="button-box">
-            <Button onClick={() => { setPage(page - 1); } } disabled={page === 1}>Назад</Button>
-            <p>Страница {page}</p>
-            <Button onClick={() => { setPage(page + 1); } } disabled={page === maxPage}>Вперед</Button>
-            </div>
-        </>
+      <>
+      <Container>
+        <Section>
+          <Flex direction="column" gap="15px">
+            <Title>
+              Книги
+            </Title>
+            <Condition condition={dataSource !== undefined}>  
+              <Table headers={columns} contentRows={dataSource}/>
+            </Condition>
+            <ButtonBox>
+              <DefaultStyledButton type="default" onClick={() => { setPage(page - 1); } } disabled={page === 1}>Назад</DefaultStyledButton>
+              <p>Страница {page}</p>
+              <DefaultStyledButton type="default" onClick={() => { setPage(page + 1); } } disabled={page === maxPage}>Вперед</DefaultStyledButton>
+            </ButtonBox>
+          </Flex>
+        </Section>
+      </Container>
+      </>
     )
 }
 

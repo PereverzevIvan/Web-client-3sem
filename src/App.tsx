@@ -1,25 +1,22 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MainRouter from './app/routing';
+import { AppWrapper, Main } from './global-styles';
 
 // Главное приложение
 function App() {
   const [isAuth, setIsAuth] = useState<boolean>(false)
   
   return (
-    <>  
-      <div className="App">
-        <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
-        <main className="main wrapper-v">
-          <div className="container wrapper-v">
-            <MainRouter isAuth={isAuth}></MainRouter>
-          </div>
-        </main>
-        <Footer/>
-      </div>
-    </>
+    <AppWrapper>
+      <Header isAuth={isAuth} setIsAuth={setIsAuth}/>
+      <Main>
+        <MainRouter isAuth={isAuth}></MainRouter>
+      </Main>
+      <Footer/>
+    </AppWrapper>
   );
 }
 
