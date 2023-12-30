@@ -21,7 +21,7 @@ const HomePage = () => {
         register, // метод для регистрации вашего инпута, для дальнейшей работы с ним
         handleSubmit, // метод для получения данных формы, если валидация прошла успешна
         formState: {errors, isValid}, // errors - список ошибок валидации для всех полей формы
-        reset // метод для очистки полей формы
+        reset, // метод для очистки полей формы
     } = useForm<IMyForm>({
         mode: "onBlur", // парметр onBlur - отвечает за запуск валидации при не активном состоянии поля
     })
@@ -49,7 +49,11 @@ const HomePage = () => {
                                         <StyledLabel className="form__label" htmlFor="commentTitle">Заголовок:</StyledLabel>
                                         <StyledInput type="text" className="form__input" id="commentTitle"
                                             {...register('commentTitle', {
-                                                required: "Поле обязательно для заполнения"
+                                                required: "Поле обязательно для заполнения",
+                                                minLength: {
+                                                    value: 5,
+                                                    message: "Поле должно содержать как минимум 5 символов"
+                                                }
                                             })}
                                         />
                                         <Condition condition={errors.commentTitle !== undefined}>    
@@ -60,7 +64,11 @@ const HomePage = () => {
                                         <StyledLabel className="form__label" htmlFor="commentTitle">Текст:</StyledLabel>
                                         <StyledTextarea className="form__input" id="commentText"
                                             {...register('commentText', {
-                                                required: "Поле обязательно для заполнения"
+                                                required: "Поле обязательно для заполнения",
+                                                minLength: {
+                                                    value: 10,
+                                                    message: "Поле должно содержать как минимум 10 символов"
+                                                }
                                             })}
                                         />
                                         <Condition condition={errors.commentText !== undefined}>    
@@ -69,11 +77,12 @@ const HomePage = () => {
                                     </Flex>
                                 </Flex>
                             </StyledFieldset>
-                            <GreenStyledButton type="default" htmlType="submit">Сохранить</GreenStyledButton>
+                            <GreenStyledButton disabled={!isValid} type="default" htmlType="submit">Сохранить</GreenStyledButton>
                         </Flex>
                     </StyledForm>
-                    
-                    <CommentList comments={tasks}/>
+                    <Condition condition={tasks.length !== 0}>
+                        <CommentList comments={tasks}/>
+                    </Condition>
                 </Flex>
             </Section>
         </Container>

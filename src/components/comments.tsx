@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Flex from "./Flex";
 
 interface CommentListProps {
     comments: {
@@ -11,22 +12,38 @@ const StyledCommentList = styled.div`
     background-color: var(--four-color);
     border-radius: 10px;
     padding: 15px;
-`
+    border: 1px solid var(--black);
 
-const StyledComment = styled.div`
+    .comment {
+        background-color: var(--secondary-color);
+        border: 1px solid var(--black);
+        border-radius: 10px;
+        padding: 10px;
+    
+    &__title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    }
     
 `
+
 
 export function CommentList(props: CommentListProps) {
     return ( 
         <StyledCommentList>
-            <StyledComment></StyledComment>
+            <Flex direction="column" gap="10px">
+                {props.comments.map((comment) => {
+                    return (
+                        <div className="comment">
+                            <p className="comment__title">{comment.commentTitle}</p>
+                            <p className="comment__text">{comment.commentText}</p>
+                        </div>
+                    )
+                })}
+            </Flex>
         </StyledCommentList>
      );
 }
 
-export function Comment() {
-    return ( 
-        <StyledComment></StyledComment>
-    );
-}
