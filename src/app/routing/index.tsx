@@ -1,10 +1,11 @@
 import React  from 'react'
-import { HOME_ROUTE, BOOKS_ROUTE, AUTHORS_ROUTE, GESNRES_ROUTE } from './config';
+import { HOME_ROUTE, BOOKS_ROUTE, AUTHORS_ROUTE, GESNRES_ROUTE, PDF_ROUTE } from './config';
 import { Navigate, RouteObject, useRoutes } from 'react-router-dom';
 import HomePage from '../../pages/home';
 import BooksPage from '../../pages/books';
 import AuthorPage from '../../pages/authors';
 import GenresPage from '../../pages/genres';
+import PDFPage from '../../pages/pdfPage';
 
 
 
@@ -12,6 +13,7 @@ const MainRouter = ({isAuth = false}) => {
     const basePaths = [
         { path: HOME_ROUTE, element: <HomePage/>},
         { path: BOOKS_ROUTE, element: <BooksPage/>},
+        { path: PDF_ROUTE, element: <PDFPage/>},
         { path: "*", element: <Navigate to={HOME_ROUTE} replace />},
     ]
 

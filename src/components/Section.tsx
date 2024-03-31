@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface SectionProps {
-    children: JSX.Element | JSX.Element[];
+    children: JSX.Element | JSX.Element[] | any;
 }
 
 const StyledSection = styled.section<SectionProps>`
