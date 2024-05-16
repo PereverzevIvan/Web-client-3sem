@@ -1,0 +1,22 @@
+.comment-list {
+  background-color: var(--four-color);
+  border-radius: 10px;
+  padding: 15px;
+  border: 1px solid var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .comment {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    padding: 10px;
+
+    &__title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  }
+}

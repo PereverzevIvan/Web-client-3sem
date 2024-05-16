@@ -1,0 +1,31 @@
+@use "../../styles/variables" as *;
+
+.button {
+  padding: 5px 10px;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border 0.2s;
+  min-width: 70px;
+  font-size: $common-text-fz;
+
+  &:not(:disabled):hover {
+    border: 2px solid $accent-color;
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
+
+.light {
+  background-color: $light-primary-color;
+  color: black;
+}
+
+.dark {
+  background-color: $dark-primary-color;
+  color: white;
+}
