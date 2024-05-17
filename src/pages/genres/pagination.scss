@@ -1,0 +1,32 @@
+@use "../../styles/variables" as *;
+
+.universities-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 10px;
+  background-color: var(--primary-color);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.university-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: $common-text-fz;
+  border: 2px solid transparent;
+  transition: border 0.2s;
+
+  background-color: var(--four-color);
+
+  &__info {
+    font-weight: bold;
+  }
+
+  &:hover {
+    border: 2px solid $green;
+  }
+}

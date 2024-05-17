@@ -3,7 +3,7 @@ import {
   HOME_ROUTE,
   BOOKS_ROUTE,
   AUTHORS_ROUTE,
-  GESNRES_ROUTE,
+  PAGINATION_ROUTE,
   PDF_ROUTE,
 } from "../../app/routing/config";
 import styles from "./navbar.module.scss";
@@ -25,7 +25,7 @@ const Navbar = ({ isAuth = false }: NavbarProps) => {
       </Link>
       {isAuth === true && (
         <>
-          <Link className={`${styles.nav__link}`} to={GESNRES_ROUTE}>
+          <Link className={`${styles.nav__link}`} to={PAGINATION_ROUTE}>
             Genres
           </Link>
           <Link className={`${styles.nav__link}`} to={AUTHORS_ROUTE}>

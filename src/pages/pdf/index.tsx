@@ -16,7 +16,6 @@ function PDFPage() {
     register,
     handleSubmit,
     formState: { errors, isValid },
-    reset,
   } = useForm<IMyForm>({
     mode: "onBlur",
   });
@@ -67,9 +66,7 @@ function PDFPage() {
               document={<MyDocument name={task.name} picture={task.picture} />}
               fileName="file.pdf" // Или любое другое название
             >
-              {({ blob, url, loading, error }) =>
-                loading ? "Загрузка..." : "Скачать"
-              }
+              {({ loading }) => (loading ? "Загрузка..." : "Скачать")}
             </PDFDownloadLink>
           )}
 
