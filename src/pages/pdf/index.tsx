@@ -44,9 +44,7 @@ function PDFPage() {
               },
             })}
           />
-          {errors.name !== undefined && (
-            <div className="form__errors">{errors.name.message}</div>
-          )}
+          {errors.name !== undefined && <div className="form__errors">{errors.name.message}</div>}
 
           <label className="form__label" htmlFor="picture">
             Изображение:

@@ -48,9 +48,7 @@ const HomePage = () => {
                 },
               })}
             />
-            {errors.commentTitle !== undefined && (
-              <div className="form__errors">{errors.commentTitle?.message}</div>
-            )}
+            {errors.commentTitle !== undefined && <div className="form__errors">{errors.commentTitle?.message}</div>}
             <label className="form__label" htmlFor="commentTitle">
               Текст:
             </label>
@@ -65,9 +63,7 @@ const HomePage = () => {
                 },
               })}
             />
-            {errors.commentText !== undefined && (
-              <div className="form__errors">{errors.commentText?.message}</div>
-            )}
+            {errors.commentText !== undefined && <div className="form__errors">{errors.commentText?.message}</div>}
           </fieldset>
           <Button type="submit" disabled={!isValid}>
             Сохранить

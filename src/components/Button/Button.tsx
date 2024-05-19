@@ -2,12 +2,12 @@ import { useContext } from "react";
 import styles from "./button.module.scss";
 import { AppThemeContext } from "../../context/AppThemeContext";
 
-type IButtonProps = {
+interface IButtonProps {
   children: string;
   disabled?: boolean;
   onClick?: any;
   type?: "button" | "submit" | "reset" | undefined;
-};
+}
 
 function Button(props: IButtonProps) {
   const { theme } = useContext(AppThemeContext);
