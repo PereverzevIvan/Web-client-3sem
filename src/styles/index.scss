@@ -1,0 +1,78 @@
+// Импорт дополнительных модулей
+@use "./variables" as *;
+@use "./fonts";
+@forward "./reset";
+@forward "./forms";
+
+// === Глобальные стили ===
+:root {
+  font-size: 16px;
+  @extend %roboto-regular;
+}
+
+html[data-theme="dark"] {
+  --primary-color: #3a3a3a;
+  --secondary-color: #2e2e2e;
+  --third-color: #333339;
+  --four-color: #252525;
+  --default-button-bg: var(--primary-color);
+  --font-color: white;
+}
+
+html[data-theme="light"] {
+  --primary-color: #dbdbdb;
+  --secondary-color: #f5f5f5;
+  --third-color: #f5f5f5;
+  --four-color: #ffffff;
+  --default-button-bg: (--third-color);
+  --font-color: black;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+  color: var(--font-color);
+}
+
+.main {
+  flex: 1 1 0;
+  width: 100%;
+}
+
+.container {
+  width: 1260px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 15px;
+  transition: background-color 0.2s;
+}
+
+.content {
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  font-size: $big-title-fz;
+  font-weight: bold;
+  color: var(--font-color);
+  transition: color 0.2s;
+  margin-bottom: 10px;
+
+  &_medium {
+    font-size: $medium-title-fz;
+  }
+
+  &_centered {
+    text-align: center;
+  }
+}

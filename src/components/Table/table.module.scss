@@ -1,0 +1,30 @@
+.table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+
+  border: none;
+  box-shadow: 0px 0px 0px 1px var(--black);
+  border-radius: 10px;
+  padding: 10px;
+  color: inherit;
+  text-align: center;
+  overflow: hidden;
+
+  &__head {
+    background-color: var(--four-color);
+    border-bottom: 2px solid var(--black);
+  }
+  &__body &__row:nth-child(even) {
+    background-color: var(--primary-color);
+  }
+  &__body &__row {
+    background-color: var(--third-color);
+  }
+  &__header {
+    padding: 20px;
+  }
+  &__cell {
+    padding: 15px;
+  }
+}

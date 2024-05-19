@@ -1,0 +1,66 @@
+@use "../styles/variables" as *;
+
+%wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form {
+  width: 500px;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--four-color);
+  margin: 0 auto;
+  @extend %wrapper;
+
+  legend {
+    text-align: center;
+  }
+
+  fieldset {
+    border: none;
+    @extend %wrapper;
+  }
+
+  label {
+    color: inherit;
+  }
+
+  input[type="text"] {
+    color: inherit;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    border: none;
+  }
+
+  input[type="file"] {
+    color: inherit;
+    padding: 7px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    border: none;
+  }
+
+  textarea {
+    color: inherit;
+    padding: 7px;
+    border-radius: 5px;
+    resize: none;
+    background-color: var(--primary-color);
+    border: none;
+  }
+
+  &__errors {
+    background-color: $red;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__button {
+    justify-self: flex-end;
+  }
+}
