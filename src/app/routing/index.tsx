@@ -4,13 +4,7 @@ import BooksPage from "../../pages/books";
 import AuthorPage from "../../pages/authors";
 import PaginationPage from "../../pages/pagination";
 
-import {
-  HOME_ROUTE,
-  BOOKS_ROUTE,
-  AUTHORS_ROUTE,
-  PAGINATION_ROUTE,
-  PDF_ROUTE,
-} from "./config";
+import { HOME_ROUTE, BOOKS_ROUTE, AUTHORS_ROUTE, PAGINATION_ROUTE, PDF_ROUTE } from "./config";
 import PDFPage from "../../pages/pdf";
 
 const MainRouter = ({ isAuth = false }) => {

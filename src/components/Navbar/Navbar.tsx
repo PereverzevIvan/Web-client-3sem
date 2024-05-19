@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  HOME_ROUTE,
-  BOOKS_ROUTE,
-  AUTHORS_ROUTE,
-  PAGINATION_ROUTE,
-  PDF_ROUTE,
-} from "../../app/routing/config";
+import { HOME_ROUTE, BOOKS_ROUTE, AUTHORS_ROUTE, PAGINATION_ROUTE, PDF_ROUTE } from "../../app/routing/config";
 import styles from "./navbar.module.scss";
 
 // Интерфейс передаваемых в компонент значений
@@ -23,7 +17,7 @@ const Navbar = ({ isAuth = false }: INavbarProps) => {
       <Link className={`${styles.nav__link}`} to={BOOKS_ROUTE}>
         Books
       </Link>
-      {isAuth === true && (
+      {isAuth && (
         <>
           <Link className={`${styles.nav__link}`} to={PAGINATION_ROUTE}>
             Genres

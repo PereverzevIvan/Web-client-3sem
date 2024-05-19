@@ -1,7 +1,7 @@
 import styles from "./table.module.scss";
 
 interface ITableProps {
-  headers: { text: string; key: string }[];
+  headers: Array<{ text: string; key: string }>;
   contentRows: object[] | undefined;
 }
 

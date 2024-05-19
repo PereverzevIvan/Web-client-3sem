@@ -20,7 +20,7 @@ const BooksPage = () => {
   }
 
   // Определение столбцов таблицы
-  const columns: { text: string; key: string }[] = [
+  const columns: Array<{ text: string; key: string }> = [
     {
       text: "№",
       key: "pk",
@@ -49,15 +49,9 @@ const BooksPage = () => {
 
   const getData = async (page: number, limit: number) => {
     const offset = (page - 1) * limit;
-    const response = await axios.get(
-      `http://127.0.0.1:8000/api/v1/books?offset=${offset}&limit=${limit}`
-    );
+    const response = await axios.get(`http://127.0.0.1:8000/api/v1/books?offset=${offset}&limit=${limit}`);
     const count = response.data.count;
-    setMaxPage(
-      count % LIMIT_RECORDS === 0
-        ? Math.floor(count / LIMIT_RECORDS)
-        : Math.floor(count / LIMIT_RECORDS) + 1
-    );
+    setMaxPage(count % LIMIT_RECORDS === 0 ? Math.floor(count / LIMIT_RECORDS) : Math.floor(count / LIMIT_RECORDS) + 1);
     setDataSource(response.data.results);
   };
 
@@ -70,9 +64,7 @@ const BooksPage = () => {
     <section>
       <div className="container content">
         <h1 className="title">Книги</h1>
-        {dataSource !== undefined && (
-          <Table headers={columns} contentRows={dataSource} />
-        )}
+        {dataSource !== undefined && <Table headers={columns} contentRows={dataSource} />}
         <ButtonBox>
           <Button
             onClick={() => {

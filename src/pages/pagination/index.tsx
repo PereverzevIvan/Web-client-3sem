@@ -1,8 +1,5 @@
 import axios from "axios";
-import {
-  UniversityCard,
-  IUniversity,
-} from "./components/UniversityCard/UniversityCard";
+import { UniversityCard, IUniversity } from "./components/UniversityCard/UniversityCard";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./pagination.module.scss";
@@ -10,7 +7,7 @@ import styles from "./pagination.module.scss";
 const LIMIT_UNIVERSITIES = 20;
 
 const PaginationPage = () => {
-  const [universities, setUniversities] = useState<Array<IUniversity>>([]);
+  const [universities, setUniversities] = useState<IUniversity[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -19,7 +16,7 @@ const PaginationPage = () => {
       setLoading(true);
       const offset = (currentPage - 1) * LIMIT_UNIVERSITIES; // Укажите свой лимит в константах компонента
       const { data } = await axios.get(
-        `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`
+        `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`,
       );
       setUniversities((prev) => [...prev, ...data]);
     } catch (error) {
@@ -49,17 +46,10 @@ const PaginationPage = () => {
         <h1 className="title">List Universities</h1>
         <div className={styles["universities-list"]}>
           {universities.map((university, index) => (
-            <UniversityCard
-              data={university}
-              key={`university-${index}`}
-            ></UniversityCard>
+            <UniversityCard data={university} key={`university-${index}`}></UniversityCard>
           ))}
           {loading && <div>Загрузка...</div>}
-          <div
-            style={{ height: "40px", backgroundColor: "black" }}
-            className="observer-block"
-            ref={ref}
-          ></div>
+          <div style={{ height: "40px", backgroundColor: "black" }} className="observer-block" ref={ref}></div>
         </div>
       </div>
     </section>

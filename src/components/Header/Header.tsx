@@ -31,8 +31,14 @@ const Header = ({ setIsAuth, isAuth }: IHeaderProps) => {
           RecommendSystemBooks
         </a>
         <Navbar isAuth={isAuth} />
-        <Button onClick={() => changeTheme()}>Сменить тему</Button>
-        {isAuth === false ? (
+        <Button
+          onClick={() => {
+            changeTheme();
+          }}
+        >
+          Сменить тему
+        </Button>
+        {!isAuth ? (
           <Button
             onClick={() => {
               setIsAuth(true);

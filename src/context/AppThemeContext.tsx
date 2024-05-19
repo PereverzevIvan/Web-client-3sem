@@ -8,9 +8,5 @@ export const AppThemeContext = createContext<any>({
 export const AppThemeProvider = ({ children }: any) => {
   const [theme, setTheme] = useState("dark");
 
-  return (
-    <AppThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </AppThemeContext.Provider>
-  );
+  return <AppThemeContext.Provider value={{ theme, setTheme }}>{children}</AppThemeContext.Provider>;
 };

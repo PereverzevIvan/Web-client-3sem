@@ -17,9 +17,7 @@ export function CommentList(props: ICommentListProps) {
         {props.comments.map((comment, index) => {
           return (
             <div key={`comment-${index}`} className={`${styles.comment}`}>
-              <p className={`${styles.comment__title}`}>
-                {comment.commentTitle}
-              </p>
+              <p className={`${styles.comment__title}`}>{comment.commentTitle}</p>
               <p className={`${styles.comment__text}`}>{comment.commentText}</p>
             </div>
           );
