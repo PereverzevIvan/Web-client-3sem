@@ -2,12 +2,13 @@ import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import HomePage from "../../pages/home";
 import BooksPage from "../../pages/books";
 import AuthorPage from "../../pages/authors";
-import GenresPage from "../../pages/genres";
+import PaginationPage from "../../pages/pagination";
+
 import {
   HOME_ROUTE,
   BOOKS_ROUTE,
   AUTHORS_ROUTE,
-  GESNRES_ROUTE,
+  PAGINATION_ROUTE,
   PDF_ROUTE,
 } from "./config";
 import PDFPage from "../../pages/pdf";
@@ -21,7 +22,7 @@ const MainRouter = ({ isAuth = false }) => {
 
   const authPaths = [
     { path: AUTHORS_ROUTE, element: <AuthorPage /> },
-    { path: GESNRES_ROUTE, element: <GenresPage /> },
+    { path: PAGINATION_ROUTE, element: <PaginationPage /> },
     { path: PDF_ROUTE, element: <PDFPage /> },
   ];
 

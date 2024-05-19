@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
-import { CommentList } from "./sections/Comments/Comments";
+import { CommentList } from "./components/Comments/Comments";
 
 // Домашняя страница
 const HomePage = () => {
