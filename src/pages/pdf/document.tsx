@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
   },
 });
 
-interface DocumentProps {
+interface IDocumentProps {
   name: string;
   picture: FileList;
 }
 
-const MyDocument: FC<DocumentProps> = ({ name, picture }) => {
+const MyDocument: FC<IDocumentProps> = ({ name, picture }) => {
   return (
     <Document title="Документ" style={styles.page}>
       <Page size="A4" style={styles.page}>

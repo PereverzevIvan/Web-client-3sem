@@ -1,11 +1,11 @@
 import styles from "./table.module.scss";
 
-interface TableProps {
+interface ITableProps {
   headers: { text: string; key: string }[];
   contentRows: object[] | undefined;
 }
 
-function Table(props: TableProps) {
+function Table(props: ITableProps) {
   return (
     <table className={styles.table}>
       <thead className={styles.table__head}>

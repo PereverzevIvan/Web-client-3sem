@@ -1,15 +1,15 @@
 import styles from "./comments.module.scss";
 
-interface Comment {
+interface IComment {
   commentTitle: string;
   commentText: string;
 }
 
-interface CommentListProps {
-  comments: Comment[];
+interface ICommentListProps {
+  comments: IComment[];
 }
 
-export function CommentList(props: CommentListProps) {
+export function CommentList(props: ICommentListProps) {
   return (
     <>
       <div className={`${styles["comment-list"]}`}>
