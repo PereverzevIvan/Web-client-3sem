@@ -9,7 +9,7 @@ const BooksPage = () => {
   const LIMIT_RECORDS = 5; // Лимит получаемых данных
 
   // Структура получаемых данных
-  interface DataType {
+  interface IDataType {
     pk: number;
     book_name: string;
     author: string;
@@ -44,7 +44,7 @@ const BooksPage = () => {
   ];
 
   const [page, setPage] = useState<number>(1);
-  const [dataSource, setDataSource] = useState<DataType[]>();
+  const [dataSource, setDataSource] = useState<IDataType[]>();
   const [maxPage, setMaxPage] = useState<number>(-1);
 
   const getData = async (page: number, limit: number) => {

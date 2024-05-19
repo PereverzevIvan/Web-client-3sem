@@ -9,12 +9,12 @@ import {
 import styles from "./navbar.module.scss";
 
 // Интерфейс передаваемых в компонент значений
-interface NavbarProps {
+interface INavbarProps {
   isAuth: boolean;
 }
 
 // Компонент навигационного меню
-const Navbar = ({ isAuth = false }: NavbarProps) => {
+const Navbar = ({ isAuth = false }: INavbarProps) => {
   return (
     <nav className={`${styles.nav}`}>
       <Link className={`${styles.nav__link}`} to={HOME_ROUTE}>

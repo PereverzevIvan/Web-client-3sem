@@ -5,13 +5,13 @@ import styles from "./header.module.scss";
 import { useContext } from "react";
 
 // Интерфейс передаваемых в компонент значений
-interface HeaderProps {
+interface IHeaderProps {
   setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
   isAuth: boolean;
 }
 
 // Компонент шапки сайта
-const Header = ({ setIsAuth, isAuth }: HeaderProps) => {
+const Header = ({ setIsAuth, isAuth }: IHeaderProps) => {
   const { theme, setTheme } = useContext(AppThemeContext);
 
   const changeTheme = () => {
