@@ -1,10 +1,15 @@
 import axios from "axios";
-import { UniversityCard, IUniversity } from "./card";
+import {
+  UniversityCard,
+  IUniversity,
+} from "./components/UniversityCard/UniversityCard";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import styles from "./pagination.module.scss";
+
+const LIMIT_UNIVERSITIES = 20;
 
 const PaginationPage = () => {
-  const LIMIT_UNIVERSITIES = 20;
   const [universities, setUniversities] = useState<Array<IUniversity>>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -42,7 +47,7 @@ const PaginationPage = () => {
     <section>
       <div className="container content">
         <h1 className="title">List Universities</h1>
-        <div className="universities-list">
+        <div className={styles["universities-list"]}>
           {universities.map((university, index) => (
             <UniversityCard
               data={university}

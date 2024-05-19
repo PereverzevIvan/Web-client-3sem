@@ -2,7 +2,7 @@ import { Navigate, RouteObject, useRoutes } from "react-router-dom";
 import HomePage from "../../pages/home";
 import BooksPage from "../../pages/books";
 import AuthorPage from "../../pages/authors";
-import PaginationPage from "../../pages/genres";
+import PaginationPage from "../../pages/pagination";
 
 import {
   HOME_ROUTE,

@@ -1,14 +1,4 @@
-@use "../../styles/variables" as *;
-
-.universities-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 10px;
-  background-color: var(--primary-color);
-  padding: 10px;
-  border-radius: 5px;
-}
+@use "/src/styles/variables" as *;
 
 .university-card {
   display: flex;
