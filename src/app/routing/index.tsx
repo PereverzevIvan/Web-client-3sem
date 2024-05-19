@@ -3,7 +3,6 @@ import HomePage from "../../pages/home";
 import BooksPage from "../../pages/books";
 import AuthorPage from "../../pages/authors";
 import GenresPage from "../../pages/genres";
-
 import {
   HOME_ROUTE,
   BOOKS_ROUTE,
@@ -20,7 +19,7 @@ const MainRouter = ({ isAuth = false }) => {
     { path: "*", element: <Navigate to={HOME_ROUTE} replace /> },
   ];
 
-  const AuthPaths = [
+  const authPaths = [
     { path: AUTHORS_ROUTE, element: <AuthorPage /> },
     { path: GESNRES_ROUTE, element: <GenresPage /> },
     { path: PDF_ROUTE, element: <PDFPage /> },
@@ -29,7 +28,7 @@ const MainRouter = ({ isAuth = false }) => {
   const resultPaths: RouteObject[] = basePaths;
 
   if (isAuth) {
-    resultPaths.push(...AuthPaths);
+    resultPaths.push(...authPaths);
   }
 
   return useRoutes(resultPaths);

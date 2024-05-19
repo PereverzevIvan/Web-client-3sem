@@ -1,10 +1,10 @@
 import classes from "./buttonBox.module.scss";
 
-interface ButtonBoxProps {
+interface IButtonBoxProps {
   children: JSX.Element | JSX.Element[];
 }
 
-function ButtonBox(props: ButtonBoxProps) {
+function ButtonBox(props: IButtonBoxProps) {
   return <div className={classes["button-box"]}>{props.children}</div>;
 }
 
