@@ -12,7 +12,7 @@ function App() {
   return (
     <div className={`app ${theme}`}>
       <Header isAuth={isAuth} setIsAuth={setIsAuth} />
-      <main className="main">
+      <main data-testid="main_tag" className="main">
         <MainRouter isAuth={isAuth}></MainRouter>
       </main>
       <Footer />

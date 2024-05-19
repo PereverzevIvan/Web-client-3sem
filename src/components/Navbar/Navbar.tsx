@@ -20,7 +20,7 @@ const Navbar = ({ isAuth = false }: INavbarProps) => {
       {isAuth && (
         <>
           <Link className={`${styles.nav__link}`} to={PAGINATION_ROUTE}>
-            Genres
+            Pagination
           </Link>
           <Link className={`${styles.nav__link}`} to={AUTHORS_ROUTE}>
             Authors
