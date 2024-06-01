@@ -7,7 +7,7 @@ import { AppThemeProvider } from "./context/AppThemeContext";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Web-client-3sem">
       <AppThemeProvider>
         <App />
       </AppThemeProvider>
